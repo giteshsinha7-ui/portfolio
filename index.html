@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Outfit:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(2deg); }
+    }
+    
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    
+    .animate-float { animation: float 6s ease-in-out infinite; }
+    .animate-float-delay { animation: float 6s ease-in-out infinite 2s; }
+    .animate-fade-up { animation: fadeInUp 0.8s ease-out forwards; }
+    .animate-fade-up-delay { animation: fadeInUp 0.8s ease-out 0.2s forwards; opacity: 0; }
+    .animate-fade-up-delay-2 { animation: fadeInUp 0.8s ease-out 0.4s forwards; opacity: 0; }
+    .animate-slide-in { animation: slideIn 0.6s ease-out forwards; }
+    .animate-scale-in { animation: scaleIn 0.5s ease-out forwards; }
+    
+    .project-card:hover .project-overlay {
+      opacity: 1;
+    }
+    
+    .project-card:hover .project-image {
+      transform: scale(1.05);
+    }
+    
+    .nav-link {
+      position: relative;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full">
+  <div id="app-wrapper" class="w-full h-full overflow-auto"><!-- Navigation -->
+   <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 px-6 py-4 backdrop-blur-md bg-opacity-80 transition-all duration-300">
+    <div class="max-w-6xl mx-auto flex items-center justify-between"><a href="#" id="nav-logo" class="text-2xl font-bold tracking-tight" style="font-family: 'Playfair Display', serif;"> Portfolio </a>
+     <div class="hidden md:flex items-center gap-8" style="font-family: 'Outfit', sans-serif;"><a href="#about" class="nav-link text-sm font-medium tracking-wide uppercase transition-colors">About</a> <a href="#work" class="nav-link text-sm font-medium tracking-wide uppercase transition-colors">Work</a> <a href="#contact" class="nav-link text-sm font-medium tracking-wide uppercase transition-colors">Contact</a>
+     </div><button id="mobile-menu-btn" class="md:hidden p-2">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg></button>
+    </div>
+   </nav><!-- Hero Section -->
+   <section id="hero" class="relative min-h-screen flex items-center justify-center px-6 overflow-hidden"><!-- Decorative Elements -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+     <div id="deco-1" class="absolute top-20 left-10 w-72 h-72 rounded-full blur-3xl opacity-30 animate-float"></div>
+     <div id="deco-2" class="absolute bottom-20 right-10 w-96 h-96 rounded-full blur-3xl opacity-20 animate-float-delay"></div>
+     <div id="deco-3" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-3xl opacity-10"></div>
+    </div><!-- Grid Pattern -->
+    <div class="absolute inset-0 opacity-5" style="background-image: linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px); background-size: 60px 60px;"></div>
+    <div class="relative z-10 text-center max-w-4xl mx-auto">
+     <div class="animate-fade-up"><span id="hero-greeting" class="inline-block px-4 py-2 rounded-full text-sm font-medium tracking-wider uppercase mb-6" style="font-family: 'Outfit', sans-serif;"> 👋 Welcome to my portfolio </span>
+     </div>
+     <h1 id="hero-name" class="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight animate-fade-up-delay" style="font-family: 'Playfair Display', serif;">Gitesh Sinha</h1>
+     <p id="hero-title" class="text-xl md:text-2xl lg:text-3xl font-light mb-4 animate-fade-up-delay-2" style="font-family: 'Outfit', sans-serif;"> CSR Strategist & Social Brand Architect </p>
+     <p id="hero-tagline" class="text-lg md:text-xl max-w-2xl mx-auto mb-10 opacity-80 animate-fade-up-delay-2" style="font-family: 'Outfit', sans-serif; animation-delay: 0.6s;"> Building CSR Ecosystems That Deliver Measurable Social Impact</p>
+     <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up-delay-2" style="animation-delay: 0.8s;"><a href="#work" id="cta-primary" class="group inline-flex items-center gap-2 px-8 py-4 rounded-full font-medium transition-all duration-300 hover:scale-105 hover:shadow-xl" style="font-family: 'Outfit', sans-serif;"> <span id="cta-button-text">View My Work</span>
+       <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+       </svg></a> <a href="#contact" id="cta-secondary" class="inline-flex items-center gap-2 px-8 py-4 rounded-full font-medium border-2 transition-all duration-300 hover:scale-105" style="font-family: 'Outfit', sans-serif;"> Get In Touch </a>
+     </div>
+    </div><!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce"><span class="text-xs uppercase tracking-widest opacity-60" style="font-family: 'Outfit', sans-serif;">Scroll</span>
+     <svg class="w-6 h-6 opacity-60" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+     </svg>
+    </div>
+   </section><!-- About Section -->
+   <section id="about" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+     <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div class="relative">
+       <div id="about-image-bg" class="absolute inset-4 rounded-3xl -z-10"></div>
+       <div id="about-image" class="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl flex items-center justify-center">
+        <svg class="w-32 h-32 opacity-40" fill="currentColor" viewbox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+        </svg>
+       </div>
+      </div>
+      <div><span id="about-label" class="inline-block px-4 py-2 rounded-full text-sm font-medium tracking-wider uppercase mb-6" style="font-family: 'Outfit', sans-serif;"> About Me </span>
+       <h2 id="about-heading" class="text-4xl md:text-5xl font-bold mb-6" style="font-family: 'Playfair Display', serif;">Passionate about creating impactful designs</h2>
+       <p id="about-text" class="text-lg leading-relaxed mb-8 opacity-80" style="font-family: 'Outfit', sans-serif;">With over 5 years of experience in design and development, I specialize in creating beautiful, functional digital experiences. I believe in the power of thoughtful design to solve problems and create meaningful connections between brands and their audiences.</p>
+       <div class="grid grid-cols-3 gap-6">
+        <div id="stat-1" class="text-center p-4 rounded-2xl">
+         <div class="text-3xl font-bold mb-1" style="font-family: 'Playfair Display', serif;">
+          50+
+         </div>
+         <div class="text-sm opacity-70" style="font-family: 'Outfit', sans-serif;">
+          Projects
+         </div>
+        </div>
+        <div id="stat-2" class="text-center p-4 rounded-2xl">
+         <div class="text-3xl font-bold mb-1" style="font-family: 'Playfair Display', serif;">
+          5+
+         </div>
+         <div class="text-sm opacity-70" style="font-family: 'Outfit', sans-serif;">
+          Years
+         </div>
+        </div>
+        <div id="stat-3" class="text-center p-4 rounded-2xl">
+         <div class="text-3xl font-bold mb-1" style="font-family: 'Playfair Display', serif;">
+          30+
+         </div>
+         <div class="text-sm opacity-70" style="font-family: 'Outfit', sans-serif;">
+          Clients
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Work Section -->
+   <section id="work" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+     <div class="text-center mb-16"><span id="work-label" class="inline-block px-4 py-2 rounded-full text-sm font-medium tracking-wider uppercase mb-6" style="font-family: 'Outfit', sans-serif;"> Featured Work </span>
+      <h2 id="work-heading" class="text-4xl md:text-5xl font-bold" style="font-family: 'Playfair Display', serif;">Selected Projects</h2>
+     </div>
+     <div class="grid md:grid-cols-2 gap-8"><!-- Project 1 -->
+      <div class="project-card group relative rounded-3xl overflow-hidden cursor-pointer">
+       <div id="project-1-bg" class="project-image aspect-[4/3] transition-transform duration-500 flex items-center justify-center">
+        <svg class="w-24 h-24 opacity-30" fill="currentColor" viewbox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
+        </svg>
+       </div>
+       <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 transition-opacity duration-300 flex items-end p-8">
+        <div class="text-white">
+         <h3 class="text-2xl font-bold mb-2" style="font-family: 'Playfair Display', serif;">Brand Identity</h3>
+         <p class="opacity-80" style="font-family: 'Outfit', sans-serif;">Visual Design • Branding</p>
+        </div>
+       </div>
+      </div><!-- Project 2 -->
+      <div class="project-card group relative rounded-3xl overflow-hidden cursor-pointer">
+       <div id="project-2-bg" class="project-image aspect-[4/3] transition-transform duration-500 flex items-center justify-center">
+        <svg class="w-24 h-24 opacity-30" fill="currentColor" viewbox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z" />
+        </svg>
+       </div>
+       <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 transition-opacity duration-300 flex items-end p-8">
+        <div class="text-white">
+         <h3 class="text-2xl font-bold mb-2" style="font-family: 'Playfair Display', serif;">Web Application</h3>
+         <p class="opacity-80" style="font-family: 'Outfit', sans-serif;">UI/UX • Development</p>
+        </div>
+       </div>
+      </div><!-- Project 3 -->
+      <div class="project-card group relative rounded-3xl overflow-hidden cursor-pointer">
+       <div id="project-3-bg" class="project-image aspect-[4/3] transition-transform duration-500 flex items-center justify-center">
+        <svg class="w-24 h-24 opacity-30" fill="currentColor" viewbox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z" />
+        </svg>
+       </div>
+       <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 transition-opacity duration-300 flex items-end p-8">
+        <div class="text-white">
+         <h3 class="text-2xl font-bold mb-2" style="font-family: 'Playfair Display', serif;">Mobile App</h3>
+         <p class="opacity-80" style="font-family: 'Outfit', sans-serif;">Product Design • iOS</p>
+        </div>
+       </div>
+      </div><!-- Project 4 -->
+      <div class="project-card group relative rounded-3xl overflow-hidden cursor-pointer">
+       <div id="project-4-bg" class="project-image aspect-[4/3] transition-transform duration-500 flex items-center justify-center">
+        <svg class="w-24 h-24 opacity-30" fill="currentColor" viewbox="0 0 24 24"><path d="M12 22C6.49 22 2 17.51 2 12S6.49 2 12 2s10 4.04 10 9c0 3.31-2.69 6-6 6h-1.77c-.28 0-.5.22-.5.5 0 .12.05.23.13.33.41.47.64 1.06.64 1.67A2.5 2.5 0 0 1 12 22zm0-18c-4.41 0-8 3.59-8 8s3.59 8 8 8c.28 0 .5-.22.5-.5a.54.54 0 0 0-.14-.35c-.41-.46-.63-1.05-.63-1.65a2.5 2.5 0 0 1 2.5-2.5H16c2.21 0 4-1.79 4-4 0-3.86-3.59-7-8-7z" /> <circle cx="6.5" cy="11.5" r="1.5" /> <circle cx="9.5" cy="7.5" r="1.5" /> <circle cx="14.5" cy="7.5" r="1.5" /> <circle cx="17.5" cy="11.5" r="1.5" />
+        </svg>
+       </div>
+       <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 transition-opacity duration-300 flex items-end p-8">
+        <div class="text-white">
+         <h3 class="text-2xl font-bold mb-2" style="font-family: 'Playfair Display', serif;">Illustration</h3>
+         <p class="opacity-80" style="font-family: 'Outfit', sans-serif;">Digital Art • Creative</p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Contact Section -->
+   <section id="contact" class="py-24 px-6">
+    <div class="max-w-4xl mx-auto text-center"><span id="contact-label" class="inline-block px-4 py-2 rounded-full text-sm font-medium tracking-wider uppercase mb-6" style="font-family: 'Outfit', sans-serif;"> Get In Touch </span>
+     <h2 id="contact-heading" class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style="font-family: 'Playfair Display', serif;">Let's work together</h2>
+     <p class="text-lg md:text-xl opacity-80 mb-10 max-w-2xl mx-auto" style="font-family: 'Outfit', sans-serif;"> Looking to build high-impact CSR initiatives?
+Let’s design sustainable impact together.</p>
+     <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16"><a href="mailto:hello@alexmorgan.com" id="contact-email-btn" class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full font-medium transition-all duration-300 hover:scale-105 hover:shadow-xl" style="font-family: 'Outfit', sans-serif;">
+       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+       </svg> hello@alexmorgan.com </a>
+     </div><!-- Social Links -->
+     <div class="flex justify-center gap-6"><a href="#" id="social-1" class="p-4 rounded-full transition-all duration-300 hover:scale-110">
+       <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+       </svg></a> <a href="#" id="social-2" class="p-4 rounded-full transition-all duration-300 hover:scale-110">
+       <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+       </svg></a> <a href="#" id="social-3" class="p-4 rounded-full transition-all duration-300 hover:scale-110">
+       <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+       </svg></a> <a href="#" id="social-4" class="p-4 rounded-full transition-all duration-300 hover:scale-110">
+       <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+       </svg></a>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer id="footer" class="py-8 px-6 border-t">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+     <p class="text-sm opacity-60" style="font-family: 'Outfit', sans-serif;">© 2024 Alex Morgan. All rights reserved.</p>
+     <p class="text-sm opacity-60" style="font-family: 'Outfit', sans-serif;">Designed with ♥ in San Francisco</p>
+    </div>
+   </footer>
+  </div>
+  <script>
+    const defaultConfig = {
+      background_color: '#0a0a0f',
+      surface_color: '#1a1a2e',
+      text_color: '#ffffff',
+      primary_action: '#6366f1',
+      secondary_action: '#818cf8',
+      font_family: 'Playfair Display',
+      font_size: 16,
+      hero_name: 'Gitesh Sinha',
+      hero_title: ' CSR Strategist | Social Brand Architect',
+      hero_tagline: ' Building CSR Ecosystems That Deliver Measurable Social Impact',
+      about_text: 'With over 8 years of experience in CSR strategy, social impact execution, and brand-led community development, I specialize in designing scalable initiatives that deliver measurable change. I believe in the power of thoughtful CSR architecture to solve real community challenges while creating meaningful alignment between corporate purpose and societal progress.',
+      cta_button_text: 'View My Work'
+    };
+    
+    async function onConfigChange(config) {
+      const bg = config.background_color || defaultConfig.background_color;
+      const surface = config.surface_color || defaultConfig.surface_color;
+      const text = config.text_color || defaultConfig.text_color;
+      const primary = config.primary_action || defaultConfig.primary_action;
+      const secondary = config.secondary_action || defaultConfig.secondary_action;
+      const fontFamily = config.font_family || defaultConfig.font_family;
+      const fontSize = config.font_size || defaultConfig.font_size;
+      
+      // Apply background
+      document.getElementById('app-wrapper').style.backgroundColor = bg;
+      document.getElementById('hero').style.backgroundColor = bg;
+      document.getElementById('about').style.backgroundColor = bg;
+      document.getElementById('work').style.backgroundColor = bg;
+      document.getElementById('contact').style.backgroundColor = bg;
+      
+      // Apply surface colors
+      document.getElementById('navbar').style.backgroundColor = bg;
+      document.getElementById('deco-1').style.backgroundColor = primary;
+      document.getElementById('deco-2').style.backgroundColor = secondary;
+      document.getElementById('deco-3').style.backgroundColor = primary;
+      document.getElementById('about-image-bg').style.backgroundColor = primary;
+      document.getElementById('about-image').style.backgroundColor = surface;
+      document.getElementById('stat-1').style.backgroundColor = surface;
+      document.getElementById('stat-2').style.backgroundColor = surface;
+      document.getElementById('stat-3').style.backgroundColor = surface;
+      document.getElementById('project-1-bg').style.backgroundColor = surface;
+      document.getElementById('project-2-bg').style.backgroundColor = surface;
+      document.getElementById('project-3-bg').style.backgroundColor = surface;
+      document.getElementById('project-4-bg').style.backgroundColor = surface;
+      document.getElementById('social-1').style.backgroundColor = surface;
+      document.getElementById('social-2').style.backgroundColor = surface;
+      document.getElementById('social-3').style.backgroundColor = surface;
+      document.getElementById('social-4').style.backgroundColor = surface;
+      document.getElementById('footer').style.borderColor = surface;
+      
+      // Apply text colors
+      document.body.style.color = text;
+      document.getElementById('nav-logo').style.color = text;
+      document.querySelectorAll('.nav-link').forEach(el => {
+        el.style.color = text;
+        el.querySelector('::after')?.style?.backgroundColor = primary;
+      });
+      document.querySelectorAll('.nav-link').forEach(el => {
+        el.style.setProperty('--underline-color', primary);
+      });
+      
+      // Apply primary action colors
+      const ctaPrimary = document.getElementById('cta-primary');
+      ctaPrimary.style.backgroundColor = primary;
+      ctaPrimary.style.color = '#ffffff';
+      
+      const contactEmailBtn = document.getElementById('contact-email-btn');
+      contactEmailBtn.style.backgroundColor = primary;
+      contactEmailBtn.style.color = '#ffffff';
+      
+      // Apply secondary action colors
+      const ctaSecondary = document.getElementById('cta-secondary');
+      ctaSecondary.style.borderColor = secondary;
+      ctaSecondary.style.color = text;
+      
+      const heroGreeting = document.getElementById('hero-greeting');
+      heroGreeting.style.backgroundColor = surface;
+      heroGreeting.style.color = secondary;
+      
+      const aboutLabel = document.getElementById('about-label');
+      aboutLabel.style.backgroundColor = surface;
+      aboutLabel.style.color = secondary;
+      
+      const workLabel = document.getElementById('work-label');
+      workLabel.style.backgroundColor = surface;
+      workLabel.style.color = secondary;
+      
+      const contactLabel = document.getElementById('contact-label');
+      contactLabel.style.backgroundColor = surface;
+      contactLabel.style.color = secondary;
+      
+      // Nav link underlines
+      const style = document.createElement('style');
+      style.textContent = `.nav-link::after { background-color: ${primary} !important; }`;
+      document.head.appendChild(style);
+      
+      // Apply fonts
+      const headingFont = `${fontFamily}, 'Playfair Display', serif`;
+      const bodyFont = `Outfit, sans-serif`;
+      
+      document.getElementById('nav-logo').style.fontFamily = headingFont;
+      document.getElementById('hero-name').style.fontFamily = headingFont;
+      document.getElementById('about-heading').style.fontFamily = headingFont;
+      document.getElementById('work-heading').style.fontFamily = headingFont;
+      document.getElementById('contact-heading').style.fontFamily = headingFont;
+      
+      // Apply font sizes
+      document.getElementById('hero-name').style.fontSize = `${fontSize * 4}px`;
+      document.getElementById('hero-title').style.fontSize = `${fontSize * 1.75}px`;
+      document.getElementById('hero-tagline').style.fontSize = `${fontSize * 1.25}px`;
+      document.getElementById('about-heading').style.fontSize = `${fontSize * 2.5}px`;
+      document.getElementById('about-text').style.fontSize = `${fontSize * 1.125}px`;
+      document.getElementById('work-heading').style.fontSize = `${fontSize * 2.5}px`;
+      document.getElementById('contact-heading').style.fontSize = `${fontSize * 3}px`;
+      
+      // Apply text content
+      document.getElementById('hero-name').textContent = config.hero_name || defaultConfig.hero_name;
+      document.getElementById('hero-title').textContent = config.hero_title || defaultConfig.hero_title;
+      document.getElementById('hero-tagline').textContent = config.hero_tagline || defaultConfig.hero_tagline;
+      document.getElementById('about-text').textContent = config.about_text || defaultConfig.about_text;
+      document.getElementById('cta-button-text').textContent = config.cta_button_text || defaultConfig.cta_button_text;
+    }
+    
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => { config.background_color = value; window.elementSdk.setConfig({ background_color: value }); }
+          },
+          {
+            get: () => config.surface_color || defaultConfig.surface_color,
+            set: (value) => { config.surface_color = value; window.elementSdk.setConfig({ surface_color: value }); }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => { config.text_color = value; window.elementSdk.setConfig({ text_color: value }); }
+          },
+          {
+            get: () => config.primary_action || defaultConfig.primary_action,
+            set: (value) => { config.primary_action = value; window.elementSdk.setConfig({ primary_action: value }); }
+          },
+          {
+            get: () => config.secondary_action || defaultConfig.secondary_action,
+            set: (value) => { config.secondary_action = value; window.elementSdk.setConfig({ secondary_action: value }); }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: (value) => { config.font_family = value; window.elementSdk.setConfig({ font_family: value }); }
+        },
+        fontSizeable: {
+          get: () => config.font_size || defaultConfig.font_size,
+          set: (value) => { config.font_size = value; window.elementSdk.setConfig({ font_size: value }); }
+        }
+      };
+    }
+    
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ['hero_name', config.hero_name || defaultConfig.hero_name],
+        ['hero_title', config.hero_title || defaultConfig.hero_title],
+        ['hero_tagline', config.hero_tagline || defaultConfig.hero_tagline],
+        ['about_text', config.about_text || defaultConfig.about_text],
+        ['cta_button_text', config.cta_button_text || defaultConfig.cta_button_text]
+      ]);
+    }
+    
+    // Initialize SDK
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    } else {
+      onConfigChange(defaultConfig);
+    }
+    
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cff4c0222cf0186',t:'MTc3MTQzNjI5My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
