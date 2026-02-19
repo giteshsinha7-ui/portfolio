@@ -1,161 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gitesh Sinha | Portfolio</title>
+    <meta charset="UTF-8">
+    <title>Gitesh Sinha | CSR Strategist</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 50px 0;
+        }
+
+        .about-section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+        }
+
+        .about-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-content h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .projects {
+            margin-top: 80px;
+        }
+
+        .projects h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card img {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 20px;
+            background-color: #222;
+            color: white;
+        }
+
+        @media(max-width: 768px) {
+            .about-section {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
+<body>
 
-<body class="bg-gray-50 text-gray-800 font-sans">
+<div class="container">
 
-<!-- ================= NAVBAR ================= -->
-<header class="fixed w-full bg-white shadow z-50">
-  <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
-    <h1 class="text-xl font-bold">Gitesh Sinha</h1>
-    <nav class="space-x-6 hidden md:block">
-      <a href="#about" class="hover:text-blue-600">About</a>
-      <a href="#projects" class="hover:text-blue-600">Projects</a>
-      <a href="#contact" class="hover:text-blue-600">Contact</a>
-    </nav>
-  </div>
-</header>
+    <!-- ABOUT SECTION -->
+    <div class="about-section">
 
-<!-- ================= HERO ================= -->
-<section class="h-screen flex items-center justify-center bg-gradient-to-r from-blue-600 to-indigo-700 text-white text-center px-6">
-  <div>
-    <h2 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm Gitesh</h2>
-    <p class="text-lg md:text-xl mb-6">CSR Consultant | Social Impact Strategist | Brand Builder</p>
-    <a href="#projects" class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">
-      View My Work
-    </a>
-  </div>
-</section>
+        <div class="about-image">
+            <img src="profile.jpg" alt="Gitesh Sinha">
+        </div>
 
-<!-- ================= ABOUT ================= -->
-<section id="about" class="py-20 px-6">
-  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+        <div class="about-content">
+            <h2>About Me</h2>
+            <p>
+                I am a CSR strategist and social branding consultant working with corporates 
+                to design high-impact community programs in healthcare, skill development, 
+                youth empowerment and sustainability.
+            </p>
+            <p>
+                I specialize in transforming CSR initiatives into measurable impact stories 
+                backed by digital strategy and strong brand communication.
+            </p>
+        </div>
 
-    <!-- About Image -->
-    <div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
-      <img src="images/imageprofile.jpg"
-           alt="Gitesh Sinha"
-           class="w-full h-full object-cover">
     </div>
 
-    <!-- About Text -->
-    <div>
-      <h2 class="text-3xl font-bold mb-6">About Me</h2>
-      <p class="mb-4 text-gray-600">
-        I am a CSR strategist and social branding consultant working with corporates
-        to design high-impact community programs in healthcare, skill development,
-        youth empowerment and sustainability.
-      </p>
-      <p class="text-gray-600">
-        I specialize in transforming CSR initiatives into measurable impact stories
-        backed by digital strategy and strong brand communication.
-      </p>
+    <!-- PROJECT SECTION -->
+    <div class="projects">
+        <h2>My Projects</h2>
+
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="project1.jpg" alt="Project 1">
+            </div>
+
+            <div class="project-card">
+                <img src="project2.jpg" alt="Project 2">
+            </div>
+
+            <div class="project-card">
+                <img src="project3.jpg" alt="Project 3">
+            </div>
+
+            <div class="project-card">
+                <img src="project4.jpg" alt="Project 4">
+            </div>
+        </div>
     </div>
 
-  </div>
-</section>
+</div>
 
-<!-- ================= PROJECTS ================= -->
-<section id="projects" class="bg-white py-20 px-6">
-  <div class="max-w-6xl mx-auto">
-    <h2 class="text-3xl font-bold text-center mb-12">My Projects</h2>
-
-    <div class="grid md:grid-cols-2 gap-10">
-
-      <!-- Project 1 -->
-      <div class="bg-gray-50 rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition">
-        <div class="aspect-[4/3] overflow-hidden">
-          <img src="imageprofile.jpg"
-               alt="Project 1"
-               class="w-full h-full object-cover hover:scale-105 transition duration-500">
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-semibold mb-2">Saksham CSR Campaign</h3>
-          <p class="text-gray-600">
-            Digital skills training, healthcare camps, and community sports infrastructure development.
-          </p>
-        </div>
-      </div>
-
-      <!-- Project 2 -->
-      <div class="bg-gray-50 rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition">
-        <div class="aspect-[4/3] overflow-hidden">
-          <img src="images/imageprofile2.jpg"
-               alt="Project 2"
-               class="w-full h-full object-cover hover:scale-105 transition duration-500">
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-semibold mb-2">Poshanalya Initiative</h3>
-          <p class="text-gray-600">
-            Creation of dignified mid-day meal spaces for underprivileged children.
-          </p>
-        </div>
-      </div>
-
-      <!-- Project 3 -->
-      <div class="bg-gray-50 rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition">
-        <div class="aspect-[4/3] overflow-hidden">
-          <img src="images/imageprofile3.jpg"
-               alt="Project 3"
-               class="w-full h-full object-cover hover:scale-105 transition duration-500">
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-semibold mb-2">Health Outreach Programs</h3>
-          <p class="text-gray-600">
-            200+ health camps delivering screenings and preventive healthcare services.
-          </p>
-        </div>
-      </div>
-
-      <!-- Project 4 -->
-      <div class="bg-gray-50 rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition">
-        <div class="aspect-[4/3] overflow-hidden">
-          <img src="images/imageprofile4.jpg"
-               alt="Project 4"
-               class="w-full h-full object-cover hover:scale-105 transition duration-500">
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-semibold mb-2">Community Sports Arena</h3>
-          <p class="text-gray-600">
-            Development of basketball courts, volleyball courts, and open gyms in rural communities.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ================= CONTACT ================= -->
-<section id="contact" class="py-20 px-6 bg-gray-100">
-  <div class="max-w-3xl mx-auto text-center">
-    <h2 class="text-3xl font-bold mb-6">Get In Touch</h2>
-    <p class="mb-6 text-gray-600">
-      Interested in collaborating or building impactful CSR campaigns?
-    </p>
-    <a href="mailto:your@email.com"
-       class="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition">
-      Contact Me
-    </a>
-  </div>
-</section>
-
-<!-- ================= FOOTER ================= -->
-<footer class="bg-gray-900 text-white text-center py-6">
-  <p>© 2026 Gitesh Sinha. All Rights Reserved.</p>
+<footer>
+    © 2026 Gitesh Sinha | CSR Strategist & Consultant
 </footer>
 
 </body>
